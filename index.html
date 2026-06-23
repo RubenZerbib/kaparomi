@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>תנאי שימוש - קפא רומי</title>
+	<style>
+		:root {
+			--bg-a: #fff5e4;
+			--bg-b: #ffd9b3;
+			--ink: #2d2016;
+			--card: #fffdf8;
+			--primary: #cc5500;
+			--primary-hover: #a44400;
+			--secondary: #5b4332;
+			--secondary-hover: #3d2d22;
+			--accent: #ffb300;
+			--shadow: 0 14px 40px rgba(63, 36, 12, 0.2);
+		}
+
+		* {
+			box-sizing: border-box;
+		}
+
+		body {
+			margin: 0;
+			min-height: 100vh;
+			font-family: "Assistant", "Rubik", "Heebo", sans-serif;
+			color: var(--ink);
+			background:
+				radial-gradient(circle at 10% 10%, #fff9ef 0 20%, transparent 45%),
+				radial-gradient(circle at 85% 20%, #ffe4c6 0 18%, transparent 40%),
+				linear-gradient(145deg, var(--bg-a), var(--bg-b));
+			display: grid;
+			place-items: center;
+			padding: 24px;
+		}
+
+		.container {
+			width: min(920px, 100%);
+			background: var(--card);
+			border-radius: 22px;
+			box-shadow: var(--shadow);
+			padding: clamp(18px, 3vw, 36px);
+			border: 2px dashed rgba(204, 85, 0, 0.25);
+			animation: rise 520ms ease-out both;
+		}
+
+		h1 {
+			margin: 0 0 12px;
+			font-size: clamp(1.7rem, 2.2vw, 2.3rem);
+			line-height: 1.2;
+			color: #5b2e00;
+		}
+
+		.subtitle {
+			margin: 0 0 18px;
+			font-size: 1rem;
+			font-weight: 600;
+			color: #7b4f27;
+		}
+
+		.terms-box {
+			border: 1.5px solid #e9d3bc;
+			border-radius: 16px;
+			background: #fff;
+			max-height: 46vh;
+			overflow: auto;
+			padding: 18px;
+			line-height: 1.8;
+			scroll-behavior: smooth;
+		}
+
+		.terms-box p {
+			margin: 0 0 14px;
+		}
+
+		.terms-box pre {
+			margin: 0;
+			white-space: pre-wrap;
+			word-break: break-word;
+			font-family: inherit;
+			font-size: 1rem;
+			line-height: 1.8;
+		}
+
+		.notice {
+			margin: 12px 0 0;
+			font-size: 0.95rem;
+			color: #8b5a2b;
+		}
+
+		.actions {
+			margin-top: 20px;
+			display: grid;
+			gap: 12px;
+			grid-template-columns: 1fr;
+		}
+
+		button {
+			border: 0;
+			border-radius: 12px;
+			padding: 14px 16px;
+			font-size: 1rem;
+			font-weight: 800;
+			cursor: pointer;
+			transition: transform 120ms ease, background-color 120ms ease;
+		}
+
+		button:active {
+			transform: translateY(1px);
+		}
+
+		.btn-primary {
+			background: var(--primary);
+			color: #fff;
+		}
+
+		.btn-primary:hover {
+			background: var(--primary-hover);
+		}
+
+		.btn-secondary {
+			background: var(--secondary);
+			color: #fff;
+		}
+
+		.btn-secondary:hover {
+			background: var(--secondary-hover);
+		}
+
+		.modal-backdrop {
+			position: fixed;
+			inset: 0;
+			background: rgba(0, 0, 0, 0.45);
+			display: none;
+			align-items: center;
+			justify-content: center;
+			padding: 20px;
+			z-index: 10;
+		}
+
+		.modal-backdrop.open {
+			display: flex;
+		}
+
+		.modal {
+			width: min(420px, 100%);
+			background: #fff;
+			border-radius: 18px;
+			padding: 20px;
+			box-shadow: var(--shadow);
+			border: 1px solid #efd9be;
+			animation: pop 220ms ease-out both;
+			text-align: center;
+		}
+
+		.modal p {
+			margin: 0 0 18px;
+			font-size: 1.15rem;
+			font-weight: 700;
+		}
+
+		.modal-actions {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 10px;
+		}
+
+		.modal-actions button {
+			font-weight: 800;
+			padding-block: 12px;
+		}
+
+		.btn-yes {
+			background: var(--accent);
+			color: #3b2200;
+		}
+
+		.btn-yes:hover {
+			background: #de9f00;
+		}
+
+		.btn-no {
+			background: #f0e2d3;
+			color: #5b4332;
+		}
+
+		.btn-no:hover {
+			background: #e4d2bf;
+		}
+
+		@keyframes rise {
+			from {
+				transform: translateY(16px);
+				opacity: 0;
+			}
+			to {
+				transform: translateY(0);
+				opacity: 1;
+			}
+		}
+
+		@keyframes pop {
+			from {
+				transform: scale(0.96);
+				opacity: 0;
+			}
+			to {
+				transform: scale(1);
+				opacity: 1;
+			}
+		}
+
+		@media (min-width: 720px) {
+			.actions {
+				grid-template-columns: 1fr 1fr;
+			}
+		}
+	</style>
+</head>
+<body>
+	<main class="container" aria-label="תנאי שימוש">
+		<h1>תנאי שימוש סודיים בהחלט של קפא רומי</h1>
+		<p class="subtitle">מסמך משפטי מחייב ביותר, כמעט כמו הבטחה לסבתא שתאכלו עוד קציצה.</p>
+
+		<section id="termsBox" class="terms-box" aria-label="טקסט התנאים">
+			<pre>התגעגעתם?
+גם אנחנו
+
+חשוב חשוב חשוב!
+
+1. בבקשה בבקשה לא להעמיס עליה באוכל ולא להציע לה כל חצי שעה לנשנש/לאכול.
+היא כבר ילדה גדולה ומודעת, אם היא רעבה היא אומרת.
+לא צריך לתת לה שטויות/הרבה אוכל - אחרת היא מקיאה ומשלשלת.
+מבחינת מה שאנחנו מציעים לה - אם היא רוצה לנשנש אפשר קצת פירות או משהו אחרי הגן (כתבתי בהמשך), וארוחת ערב. כנ"ל בשישי ושבת, אין צורך להעמיס ולתת לה כל רגע לאכול, אם היא תרצה היא תבקש.
+
+2. לעדכן אותי בהכל בבקשהההה ולשלוח תמונות אני כבר מתגעגעת!
+
+בתודה - אמא לחוצה ♥
+
+· כתובת של הגן: רחוב התלתן 12, קריית השרון. הגן נפתח ב-7:00. הגעה לגן עד 8:30 גג.
+· קוד כניסה לגן: 1968 ואז * (לשים לב לסגור את הדלת אחריכם גם בכניסה וגם ביציאה).
+· הקבוצה של רומי נמצאת בקומת הקרקע של הבית, לא לשכוח לקחת איתכם את הבקבוק מים שלה (הוא מחוץ לתיק בדרך כלל).
+· טלפון של שרית הגננת של רומי - 0525703478
+· טלפון של חנה הסייעת - 0503410708
+· חניה שיר - 150
+· חניה שחר - 271
+· קוד כניסה לבניין מקדימה ומאחורה: #1597
+· קוד כניסה לבניין מהחניון: 0863
+· קוד לרכב של שיר - *2313
+
+בוקר
+
+רומי רגילה לקום ולבוא אלינו למיטה/לשחק בחדר משחקים עד שאנחנו מתאוששים.
+לאחר מכן, קודם כל מחליפים טיטול, בגדים ומסדרים שיער, ורק אחר כך היא יכולה לאכול/לשחק קצת עד שאתם מסיימים להתארגן.
+בגדים לכל יום ובגדים להחלפה בתיק במידה וצריך - ארגנתי לכם מסודר על השולחן בפינת אוכל. ספריי וקרם לשיער, גומיות, משחת החתלה ומסרקים נמצאים בסלסלה על השידה.
+לשים לה על החולצה בגב מדבקה נגד יתושים (ציורים של סמי הכבאי), בלי שהיא שמה לב אחרת היא תוריד אותה.
+נעליים - יש בסלון או במגירה התחתונה של הארון בגדים שלה.
+לוודא כל יום שיש בתיק לגן - 4 טיטולים, בקבוק מים, 2 סטים להחלפה (בשקית ורודה) ומשטח החתלה חד פעמי.
+אפשר לתת לה לאכול בבוקר יוגורט יווני עם אוכמניות (חתוכות לחצי או רבעים), או פתי בר (במגירה התחתונה מתחת לתנור), או בננה.
+
+אחר צהריים
+
+איסוף מהגן עד השעה 17:00 גג (איחור יגבה מאיתנו תשלום).
+אפשר ללכת איתה לגן שעשועים/לחזור הביתה.
+אם היא רוצה לנשנש קצת אז אפשר ענבים חתוכים לרבעים/דובדבנים בלי הגרעין וחתוכים לחצי/אוכמניות חתוכות לחצי/קצת עוגה/תפוח/בננה/מנגו (במגירה במקרר).
+לוודא ששותה מספיק מים.
+
+שישי - לרוב היא אוכלת חלה בגן אז היא לא מגיעה מאוד רעבה, אבל אפשר להציע לה ארוחת צהריים לקראת 12:30-13:00. אם היא עייפה להשכיב אותה לישון, ואם לא אז אפשר למשוך אותה ולהכניס לישון ב-19:00 גג. אם היא ממש עייפה אפשר גם קצת לפני.
+
+כנ"ל יום שבת - אם היא רוצה לישון צהריים אז בסביבות 13:00-13:30. אם היא לא רוצה לישון אז להכניס לשנת לילה ב-19:00 גג. אם היא ממש עייפה אפשר גם קצת לפני.
+
+ערב
+
+ארוחת ערב אפשר לתת לה לקראת 18:30 - בורקסים בתנור/ג'חנון אפוי לחמם במיקרו דקה וחצי (הילדה מכורה מה נעשה)/מקושקשת או חביתה/פיתה קטנה עם גבינה/בולונז/פסטה וכו. אם היא תסכים לאכול ירקות זה מבורך.
+אחרי ארוחת הערב להחשיך את הבית קצת, להוריד תריסים, שתחשוב שכבר מחשיך... נכנסת למקלחת, מתלבשת, אם היא רוצה אפשר לקרוא סיפור בסלון, צחצוח שיניים וכניסה למיטה סביב השעה 19:30.
+לתת לה מים לפני השינה, להגיד לה לומר לילה טוב למים ושהם הולכים לישון. אחרת היא תקרא לכם שוב ושוב לשתות (זה כנראה יקרה אז תהיו עקביים).
+אם היא משגעת אתכם בלילה על שטויות ועוד מים ועוד מים - להציע לה חיבוק במקום/להגיד לה שהמים הלכו לישון ועכשיו לילה וכולם ישנים.
+מוצץ - אך ורק בשינה.
+היא גם יודעת את זה. ורק מוצץ אחד! בפה. ללא מוצץ נוסף ביד.
+משאירים את הדלת של החדר פתוחה קצת.
+מדליקים לה מאוורר עם השלט שנמצא ליד הדלת, עוצמה 1. לא לכבות אחרת יהיה לה מאוד חם בלילה.
+
+חולי
+
+השארתי סלסלה על האי עם תרופות למקרה הצורך.
+
+במקרה של צינון/שיעול-
+מכשיר אינהלציה ומי מלח - לשים במזרק הפתוח 2 מ"ל מי מלח ולשפוך לאינהלציה ולהפעיל קרוב אליה. עדיף כשהיא ישנה אחרת היא לא תשתף פעולה.
+קפסולות ירוקות של ג'אנבול קאפס - למלא קערית עם מים רותחים ולשים את תכולת הקפסולה במים, להניח מתחת למיטה שלה בצורה שהיא לא מגיעה לזה.
+
+במקרה של חום-
+אפשר לתת נורופן - או באמצעות נר בטוסיק, או לקחת עם המזרק (לפי 13 ק"ג) ולהעביר לכפית. פעם ב-6-8 שעות.
+
+במקרה של אלרגיה/עקיצות מרובות שהתנפחו -
+אפשר לתת לה טיפות פנסטיל (קופסא אדומה) - 13 טיפות בכפית. אפשר כמה פעמים ביום אם המצב חמור.
+
+אם יש משהו נוסף או החמרה - תדברו איתי בבקשה.
+
+תיק לגן
+
+· 4 טיטולים
+· חבילת מדבקות נגד יתושים
+· משטח החתלה חד פעמי
+· בקבוק מים
+· 2 סטים להחלפה (בשקית ורודה)
+· ביום ראשון - לשים סדין נקי בתיק ומוצצים נקיים בקופסת מוצצים שהם מחזירים מהגן בחמישי.</pre>
+		</section>
+
+		<p class="notice">יש לגלול, לקרוא, לנשום עמוק ולאשר כאילו באמת יש ברירה.</p>
+
+		<div class="actions">
+			<button class="btn-primary" id="approveBtn" type="button">קראתי ואני מאשר/ת את התנאים</button>
+			<button class="btn-secondary" id="noChoiceBtn" type="button">אין לך ברירה מלבד לאשר</button>
+		</div>
+	</main>
+
+	<div class="modal-backdrop" id="confirmModal" role="dialog" aria-modal="true" aria-labelledby="confirmText">
+		<div class="modal">
+			<p id="confirmText">את/ה בטוח/ה שקראת את כל התנאים?</p>
+			<div class="modal-actions">
+				<button class="btn-yes" id="yesBtn" type="button">כן</button>
+				<button class="btn-no" id="noBtn" type="button">לא</button>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		const modal = document.getElementById("confirmModal");
+		const approveBtn = document.getElementById("approveBtn");
+		const noChoiceBtn = document.getElementById("noChoiceBtn");
+		const yesBtn = document.getElementById("yesBtn");
+		const noBtn = document.getElementById("noBtn");
+		const termsBox = document.getElementById("termsBox");
+
+		function openModal() {
+			modal.classList.add("open");
+		}
+
+		function closeModal() {
+			modal.classList.remove("open");
+		}
+
+		approveBtn.addEventListener("click", openModal);
+		noChoiceBtn.addEventListener("click", openModal);
+
+		yesBtn.addEventListener("click", () => {
+			window.location.href = "thank-you.html";
+		});
+
+		noBtn.addEventListener("click", () => {
+			closeModal();
+			termsBox.scrollTop = 0;
+			termsBox.focus?.();
+		});
+
+		modal.addEventListener("click", (event) => {
+			if (event.target === modal) {
+				closeModal();
+			}
+		});
+
+		document.addEventListener("keydown", (event) => {
+			if (event.key === "Escape") {
+				closeModal();
+			}
+		});
+	</script>
+</body>
+</html>

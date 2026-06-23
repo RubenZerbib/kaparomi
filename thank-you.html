@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>תודה</title>
+  <style>
+    :root {
+      --bg-1: #fff8e7;
+      --bg-2: #ffd3a0;
+      --ink: #3a2718;
+      --card: #fffdf7;
+      --heart: #d33b56;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 20px;
+      font-family: "Assistant", "Rubik", "Heebo", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 20% 15%, #fffef9 0 18%, transparent 38%),
+        radial-gradient(circle at 80% 80%, #ffe7cb 0 16%, transparent 34%),
+        linear-gradient(135deg, var(--bg-1), var(--bg-2));
+    }
+
+    .card {
+      width: min(760px, 100%);
+      background: var(--card);
+      border-radius: 24px;
+      box-shadow: 0 16px 42px rgba(60, 36, 12, 0.22);
+      padding: clamp(26px, 4vw, 44px);
+      text-align: center;
+      animation: floatIn 500ms ease-out both;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(1.5rem, 3.2vw, 2.4rem);
+      line-height: 1.5;
+    }
+
+    .heart {
+      color: var(--heart);
+      font-size: 1.25em;
+      vertical-align: middle;
+      margin-right: 2px;
+    }
+
+    a {
+      display: inline-block;
+      margin-top: 20px;
+      font-weight: 700;
+      color: #8a4300;
+      text-underline-offset: 4px;
+    }
+
+    @keyframes floatIn {
+      from {
+        transform: translateY(12px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <h1>תודה שאתם שומרים על הדבר הכי מתוק והכי חשוב לנו מכל,<br>אוהבים ההורים של רומי <span class="heart" aria-label="לב">❤</span></h1>
+    <a href="index.html">חזרה לתנאים (למי שמתגעגע לסעיפים)</a>
+  </main>
+</body>
+</html>
