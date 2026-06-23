@@ -8,9 +8,11 @@
     :root {
       --bg-1: #fff8e7;
       --bg-2: #ffd3a0;
+      --bg-3: #ffeacc;
       --ink: #3a2718;
       --card: #fffdf7;
       --heart: #d33b56;
+      --line: #edd1ad;
     }
 
     * {
@@ -26,25 +28,76 @@
       font-family: "Assistant", "Rubik", "Heebo", sans-serif;
       color: var(--ink);
       background:
-        radial-gradient(circle at 20% 15%, #fffef9 0 18%, transparent 38%),
-        radial-gradient(circle at 80% 80%, #ffe7cb 0 16%, transparent 34%),
-        linear-gradient(135deg, var(--bg-1), var(--bg-2));
+        radial-gradient(circle at 15% 12%, #fffef9 0 17%, transparent 39%),
+        radial-gradient(circle at 87% 82%, #ffe7cb 0 16%, transparent 35%),
+        linear-gradient(135deg, var(--bg-1), var(--bg-2) 55%, var(--bg-3));
+      position: relative;
+      overflow: hidden;
+    }
+
+    body::before,
+    body::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    body::before {
+      width: 360px;
+      height: 360px;
+      top: -140px;
+      left: -120px;
+      background: radial-gradient(circle at center, rgba(255, 184, 83, 0.36) 0 35%, rgba(255, 184, 83, 0) 70%);
+    }
+
+    body::after {
+      width: 380px;
+      height: 380px;
+      right: -130px;
+      bottom: -150px;
+      background: radial-gradient(circle at center, rgba(214, 89, 0, 0.22) 0 32%, rgba(214, 89, 0, 0) 70%);
     }
 
     .card {
+      position: relative;
+      z-index: 1;
       width: min(760px, 100%);
-      background: var(--card);
+      background: linear-gradient(180deg, #fffaf1 0%, var(--card) 28%, #ffffff 100%);
       border-radius: 24px;
-      box-shadow: 0 16px 42px rgba(60, 36, 12, 0.22);
+      box-shadow: 0 20px 55px rgba(60, 36, 12, 0.24);
       padding: clamp(26px, 4vw, 44px);
       text-align: center;
       animation: floatIn 500ms ease-out both;
+      border: 1px solid var(--line);
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(110deg, rgba(255, 209, 106, 0.18), rgba(255, 255, 255, 0) 42%);
+    }
+
+    .tag {
+      display: inline-block;
+      margin-bottom: 14px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 800;
+      background: #fff1da;
+      color: #7a471d;
+      border: 1px solid #f1d4ad;
     }
 
     h1 {
       margin: 0;
       font-size: clamp(1.5rem, 3.2vw, 2.4rem);
       line-height: 1.5;
+      letter-spacing: 0.1px;
     }
 
     .heart {
@@ -58,8 +111,9 @@
       display: inline-block;
       margin-top: 20px;
       font-weight: 700;
-      color: #8a4300;
+      color: #7f3f00;
       text-underline-offset: 4px;
+      text-decoration-thickness: 2px;
     }
 
     @keyframes floatIn {
@@ -76,6 +130,7 @@
 </head>
 <body>
   <main class="card">
+    <span class="tag">אתם רשמית אנשים אחראיים</span>
     <h1>תודה שאתם שומרים על הדבר הכי מתוק והכי חשוב לנו מכל,<br>אוהבים ההורים של רומי <span class="heart" aria-label="לב">❤</span></h1>
     <a href="index.html">חזרה לתנאים (למי שמתגעגע לסעיפים)</a>
   </main>
